@@ -58,7 +58,7 @@ type Database struct {
 
 func (d *Database) GetConnect() {
 	database := d.GetInfo()
-	DB, _ = gorm.Open(database.Datatype, database.Username+":"+database.Password+"@/"+database.Database+"?charset=utf8&parseTime=True&loc=Local")
+	DB, _ = gorm.Open(database.Datatype, database.Username+":"+database.Password+"@tcp("+database.Hostname+":3306)/"+database.Database+"?charset=utf8&parseTime=True&loc=Local")
 }
 
 //获取数据库配置
